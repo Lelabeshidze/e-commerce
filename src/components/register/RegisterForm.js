@@ -3,11 +3,39 @@ import { useState, useEffect } from "react";
 import { Button, FormControl, TextField } from "@mui/material";
 import { Form } from "react-router-dom";
 import {instance} from "../../hooks/instance"
+import { useUserContext } from "../../context/userContext";
 export const RegisterForm = (onSubmit) => {
   const initialState = { firstName: "", lastName: "", email: "", password: "" };
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false)
 
+
+  const  {register} = useUserContext();
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    // try {
+    //   const { data } = await instance.post(
+    //     "/users/register/",
+    //     values
+    //     // JSON.stringify({ values }),
+    //     // {
+    //     //   headers: { "Content-Type": "application/json" },
+    //     //   withCredentials: true,
+    //     // }
+    //   );
+    //   localStorage.setItem("token", data.token);
+    //   localStorage.setItem("refresh_token", data.refreshToken);
+    //   setLoading(true);
+    //   navigate("/profile");
+    //   setValues(data.user);
+    // } catch (err) {
+    //   setErrors("Registration Failed");
+    // }
+    const firstName = values.firstName;
+    const lastname = values.lastname;
+    const email = values.email;
+    const password = values.password;
+    register({ firstName, lastname, email, password });
+  };
   const validations = [
     ({ firstName }) =>
       isRequired(firstName) || {
@@ -28,19 +56,18 @@ export const RegisterForm = (onSubmit) => {
         password: "Password is required and must contain more than 3 symbols",
       },
   ];
-
-
-  
-
-
-  const { values, errors, isValid, touched, changeHandler,submitHandler } = useForm(
+  const { values, errors, isValid, touched, changeHandler } = useForm(
     initialState,
     validations,
     onSubmit
   );
 
+
+
+ 
+
   return (
-    <form className="signup-form" onSubmit={ submitHandler}>
+    <FormControl className="signup-form" >
       <h2>Sign up</h2>
       <div>
         <TextField
@@ -98,9 +125,9 @@ export const RegisterForm = (onSubmit) => {
         />
         {touched.password && errors.password && <p>{errors.password}</p>}
       </div>
-      <button disabled={!isValid}>
+      <Button disabled={!isValid} onClick={ submitHandler}>
         Sign Up
-      </button>
-    </form>
+      </Button>
+    </FormControl>
   );
 };
