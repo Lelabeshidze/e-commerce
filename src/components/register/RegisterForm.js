@@ -2,8 +2,12 @@ import { useForm, isRequired } from "../../hooks/useForm";
 import { useState, useEffect } from "react";
 import { Button, FormControl, TextField } from "@mui/material";
 import { Form } from "react-router-dom";
+import {instance} from "../../hooks/instance"
 export const RegisterForm = (onSubmit) => {
   const initialState = { firstName: "", lastName: "", email: "", password: "" };
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false)
+
   const validations = [
     ({ firstName }) =>
       isRequired(firstName) || {
@@ -14,9 +18,10 @@ export const RegisterForm = (onSubmit) => {
       isRequired(lastName) || {
         lastName: "Last name is required and must contain more than 3 symbols",
       },
+
     ({ email }) =>
-      isRequired(email) || {
-        email: "Last name is required and must contain more than 3 symbols",
+      (isRequired(email) && email.includes("@gmail.com")) || {
+        email: "email is not valid",
       },
     ({ password }) =>
       isRequired(password) || {
@@ -24,11 +29,18 @@ export const RegisterForm = (onSubmit) => {
       },
   ];
 
-  const { values, errors, isValid, touched, changeHandler, submitHandler } =
-    useForm(initialState, validations, onSubmit);
+
+  
+
+
+  const { values, errors, isValid, touched, changeHandler,submitHandler } = useForm(
+    initialState,
+    validations,
+    onSubmit
+  );
 
   return (
-    <FormControl className="signup-form" onSubmit={submitHandler}>
+    <form className="signup-form" onSubmit={ submitHandler}>
       <h2>Sign up</h2>
       <div>
         <TextField
@@ -86,9 +98,9 @@ export const RegisterForm = (onSubmit) => {
         />
         {touched.password && errors.password && <p>{errors.password}</p>}
       </div>
-      <Button variant="outlined" disabled={!isValid}>
+      <button disabled={!isValid}>
         Sign Up
-      </Button>
-    </FormControl>
+      </button>
+    </form>
   );
 };

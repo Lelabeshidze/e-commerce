@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react';
+import {instance} from '../hooks/instance'
 function validate(validations, values) {
     const errors = validations
       .map(validation => validation(values))
@@ -12,6 +13,7 @@ function validate(validations, values) {
     const [errors, setErrors] = useState(initialErrors);
     const [isValid, setValid] = useState(initialIsValid);
     const [touched, setTouched] = useState({});
+    const [loading,setLoading] = useState(false)
   
     const changeHandler = ({target: {value, name}}) => {
       const newValues = {...values, [name]: value};
@@ -22,13 +24,45 @@ function validate(validations, values) {
       setTouched({...touched, [name]: true});
     };
   
-    const submitHandler = event => {
-      event.preventDefault();
-      console.log(values)
-      setValues({firstName: '', lastName: '', email: '',password:''})
+    // const submitHandler = async (event) => {
+    //   event.preventDefault();
+    //   setValues({firstName: '', lastName: '', email: '',password:''})
+ 
+    //     const { data } = await instance.post("/users/register/", values);
+    //     console.log(data)
+    
+    // };
+    const submitHandler = async (e) => {
+      e.preventDefault();
+ 
+      try {
+        const response = await instance.post(
+          "/users/register/", values,
+          JSON.stringify({ values}),
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+          
+        );
+        console.log(response)
+        setLoading(true);
+       
+        setValues({firstName: '', lastName: '', email: '',password:''})
+      
+      } catch (err) {
+        if (!err?.response) {
+          setErrors("No Server Response");
+        }  else {
+          setErrors("Registration Failed");
+        }
+       
+      }
     };
 
-    return {values, errors, touched, isValid, changeHandler, submitHandler };
+
+
+    return {values, errors, touched, isValid, changeHandler, submitHandler};
   }
   
   export function isRequired(value) {
