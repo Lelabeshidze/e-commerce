@@ -13,21 +13,21 @@ import {
 } from "react-router-dom";
 import ProfilePage from "./pages/profile/ProfilePage";
 import { UserContextProvider } from "./context/userContext";
-
+import MainLayout from "./layout";
+import LoginPage from "./pages/login/LoginPage";
 function App() {
   return (
     <div className="App">
       <Router>
         <UserContextProvider>
-          <nav>
-            <Link to="/register">Sign Up</Link>
-            <br />
-            <Link></Link>
-          </nav>
+         <MainLayout>
           <Routes>
-            <Route path="/profile" element={<ProfilePage />}></Route>
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/" element={<HomePage/>}></Route>
+            <Route path="/login" element={<LoginPage/>} />
+            <Route path="/profile/:name" element={<ProfilePage />}></Route>
+            <Route path="/register" element={<RegisterPage />} />   
           </Routes>
+          </MainLayout>
         </UserContextProvider>
       </Router>
     </div>

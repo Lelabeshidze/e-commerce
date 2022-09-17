@@ -1,12 +1,13 @@
-import React from 'react'
-import { useUserContext } from '../../context/userContext'
-import { useForm } from '../../hooks/useForm';
+import React, { useEffect, useState } from 'react'
+import { useUserContext } from '../../context/userContext';
+
 
 const ProfileComponent = () => {
-    const {values} = useForm();
-    
+
+  const{userData} = useUserContext()
   return (
-    <div>Profile {values.firstName}</div>
+
+    <div> Hello {userData.firstName}</div>
   )
 }
 

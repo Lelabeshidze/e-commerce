@@ -5,41 +5,30 @@ import "../../App.css";
 import { useUserContext } from "../../context/userContext";
 import LoadingSpinner from "../../utils/LoadingSpinner";
 
-export const RegisterForm = (onSubmit) => {
-  const initialState = { firstName: "", lastName: "", email: "", password: "" };
+export const LoginForm = (onSubmit) => {
+  const initialState = {  email: "", password: "" };
 const[isLoading,setIsLoading] = useState(false)
-  const  {register} = useUserContext();
+  const  {login} = useUserContext();
   const submitHandler = async (e) => {
     e.preventDefault();
 
 
-    const firstName = values.firstName;
-    const lastname = values.lastname;
+
     const email = values.email;
     const password = values.password;
-    register({ firstName, lastname, email, password });
+    login({  email, password });
     setIsLoading(true)
   };
   
   const validations = [
-    ({ firstName }) =>
-      isRequired(firstName) || {
-        firstName:
-          "First Name must contain more than 3 symbols",
-      },
-    ({ lastName }) =>
-      isRequired(lastName) || {
-        lastName: "Last Name  must contain more than 3 symbols",
-      },
 
     ({ email }) =>
       (isRequired(email) && email.includes("@gmail.com")) || {
-        email: "email is not valid",
+        email: "Email is not  valid",
       },
     ({ password }) =>
       isRequired(password) || {
-        password: "Password must contain more than 3 symbols",
-      },
+        password: "Password must contain more than 3 symbols"}
   ];
   const { values, errors, isValid, touched, changeHandler } = useForm(
     initialState,
@@ -54,35 +43,7 @@ const[isLoading,setIsLoading] = useState(false)
   return (
 
     <FormControl className="signup-form">
-      <h2>Sign up</h2>
-      <div>
-        <TextField
-          label="Firstname"
-          variant="standard"
-          type="text"
-          name="firstName"
-          required
-          value={values.firstName}
-          onChange={changeHandler}
-          error={!!values.firstName && !!errors.firstName}
-          helperText={values.firstName && errors.firstName}
-        />
-        {/* {touched.firstName && errors.firstName && <p>{errors.firstName}</p>} */}
-      </div>
-      <div>
-        <TextField
-          label="Lastname"
-          variant="standard"
-          type="text"
-          name="lastName"
-          required
-          value={values.lastName}
-          onChange={changeHandler}
-          error={!!values.lastName && !!errors.lastName}
-          helperText={values.lastName && errors.lastName}
-        />
-        {/* {touched.lastName && errors.lastName && <p>{errors.lastName}</p>} */}
-      </div>
+      <h2>Sign in</h2>
       <div>
         <TextField
           label="Email"
@@ -113,7 +74,7 @@ const[isLoading,setIsLoading] = useState(false)
       </div>
       
       <Button disabled={!isValid} onClick={ submitHandler}>
-        Sign Up
+        Sign In
       </Button>
       {isLoading && <LoadingSpinner /> }
     </FormControl>
