@@ -11,13 +11,11 @@ const[isLoading,setIsLoading] = useState(false)
   const  {register} = useUserContext();
   const submitHandler = async (e) => {
     e.preventDefault();
-
-
     const firstName = values.firstName;
-    const lastname = values.lastname;
+    const lastName = values.lastName;
     const email = values.email;
     const password = values.password;
-    register({ firstName, lastname, email, password });
+    register({ firstName, lastName, email, password });
     setIsLoading(true)
   };
   
@@ -46,7 +44,6 @@ const[isLoading,setIsLoading] = useState(false)
     validations,
     onSubmit
   );
-
 
 
  

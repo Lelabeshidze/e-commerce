@@ -3,8 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { instance } from "../hooks/instance";
 import { useForm } from "../hooks/useForm";
-import { getUser } from "../utils/GetToken";
-
+import { getUser } from "../utils/util";
 
 const userContext = createContext();
 export const useUserContext = () => useContext(userContext);
@@ -17,15 +16,7 @@ export const UserContextProvider = ({ children }) => {
 
   const register = async (values) => {
     try {
-      const { data } = await instance.post(
-        "/users/register/",
-        values
-        // JSON.stringify({ values }),
-        // {
-        //   headers: { "Content-Type": "application/json" },
-        //   withCredentials: true,
-        // }
-      );
+      const { data } = await instance.post("/users/register/", values);
       localStorage.setItem("token", data.token);
       localStorage.setItem("refresh_token", data.refreshToken);
 
@@ -57,9 +48,12 @@ export const UserContextProvider = ({ children }) => {
     localStorage.removeItem("refresh_token");
     setUserData(null);
     navigate("/");
+  };
+  const  addProduct = () => {
+    
   }
   return (
-    <userContext.Provider value={{ register, userData, login,logout}}>
+    <userContext.Provider value={{ register, userData, login, logout,  addProduct }}>
       {children}
     </userContext.Provider>
   );

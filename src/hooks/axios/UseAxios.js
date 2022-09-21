@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { instance } from '../hooks/instance';
+import { instance } from '../instance';
 
 const UseAxios = (url) => {
  const [isLoading, setIsLoading] = useState(false);
