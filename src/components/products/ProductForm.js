@@ -5,12 +5,12 @@ import "../../App.css";
 import { useUserContext } from "../../context/userContext";
 import LoadingSpinner from "../../utils/LoadingSpinner";
 import FileBase from "react-file-base64";
-import { useProdactContext } from "../../context/productContext";
+import { useProductContext } from "../../context/productContext";
 export const ProductForm = (onSubmit) => {
   const initialState = { name: "", description: "", category:"", brand: "", price: "", image:"" };
   const [isLoading, setIsLoading] = useState(false);
   const [image,setImage] = useState("");
-  const { addProduct } = useProdactContext();
+  const { addProduct } = useProductContext();
   const submitHandler = async (e) => {
     e.preventDefault();
     const name = values.name;

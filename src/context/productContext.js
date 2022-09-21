@@ -6,10 +6,10 @@ import { useForm } from "../hooks/useForm";
 
 const ProductContext = createContext();
 
-export const useProdactContext = () => useContext(ProductContext);
+export const useProductContext = () => useContext(ProductContext);
 
 export const ProductContextProvider = ({ children }) => {
-  const { data } = UseAxios("/products");
+  const {data: mainProductData } = UseAxios("/products");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isProductUpdating, setProductUpdating] = useState(false);
   const { setErrors } = useForm();
@@ -29,6 +29,6 @@ export const ProductContextProvider = ({ children }) => {
       }
   };
   return (
-    <ProductContext.Provider value={{addProduct}}> {children}</ProductContext.Provider>
+    <ProductContext.Provider value={{addProduct,mainProductData}}> {children}</ProductContext.Provider>
   );
 };

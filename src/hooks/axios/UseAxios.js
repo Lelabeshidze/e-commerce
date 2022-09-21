@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { instance } from '../instance';
 
 const UseAxios = (url) => {
- const [isLoading, setIsLoading] = useState(false);
- const [data, setData] = useState(null);
+ const [data, setData] = useState([]);
  useEffect(() => {
  const  getData = async () => {
     const { data } = await instance.get(url);
