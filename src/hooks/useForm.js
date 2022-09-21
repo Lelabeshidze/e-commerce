@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useUserContext, register } from "../context/userContext";
-import { instance } from "../hooks/instance";
+
 function validate(validations, values) {
   const errors = validations
     .map((validation) => validation(values))
