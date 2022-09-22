@@ -7,7 +7,7 @@ import LoadingSpinner from "../../utils/LoadingSpinner";
 import FileBase from "react-file-base64";
 import { useProductContext } from "../../context/productContext";
 export const ProductForm = (onSubmit) => {
-  const initialState = { name: "", description: "", category:"", brand: "", price: "", image:"" };
+  const initialState = { name: "", description: "", category:"", brand: "", price: "" };
   const [isLoading, setIsLoading] = useState(false);
   const [image,setImage] = useState("");
   const { addProduct } = useProductContext();

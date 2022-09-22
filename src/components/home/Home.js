@@ -1,5 +1,7 @@
+import { Pagination } from "@mui/material";
 import React from "react";
 import { useProductContext } from "../../context/productContext";
+
 import ProductCard from "../card/ProductCard";
 
 const Home = () => {
@@ -8,9 +10,10 @@ const Home = () => {
   return (
     <div>
       {mainProductData.products?.map((product) => (
-
-        <ProductCard key={product._id} product={product}></ProductCard>
+        <ProductCard key={product._id} product={product}>
+        </ProductCard>
       ))}
+      
     </div>
   );
 };

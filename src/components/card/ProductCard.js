@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, Rating, Typography } from '@mui/material'
+import { Card, CardActions, CardContent, Pagination, Rating, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useUserContext } from '../../context/userContext';
 import { instance } from '../../hooks/instance';
@@ -18,18 +18,20 @@ const ProductCard = ({product}) => {
         }catch{ }
     }
   return (
-    <Card>
+    
+    <Card className='Card'>
         <CardContent>
+        <img src={product.image}   className="ProductImg"/> <br/>
         <Typography variant='caption' >{product.brand} </Typography>
           <Typography variant='h6'>{product.name} </Typography>
           <Typography variant='overline'>{product.description} </Typography>
           <Typography>${product.price}</Typography>
-          <Typography>{product.image} </Typography>
         </CardContent>
         <CardActions>
-            <Rating value={rating} onChange={onRatingChange }/>
+            <Rating value={rating} onChange={onRatingChange } precision={0.5} />
         </CardActions>
     </Card>
+  
   )
 }
 

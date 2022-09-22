@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.ProductImg {
+  width: 20%;
+}
+.Card {
+  display:inline-block;
+}
