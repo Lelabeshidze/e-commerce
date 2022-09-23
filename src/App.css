@@ -40,10 +40,11 @@
   }
 }
 .ProductImg {
-  width: 20%;
+  width: 40%;
 }
 .Card {
-  display:inline-block;
+margin-top: 100px;
+
 }
 li, ul {
   list-style: none;
@@ -68,8 +69,7 @@ a {
   align-items:center;
   margin-top:20px;
  
-  height:100px;
-  width: 100%;
+ height: 100px;
   padding: auto;
   border:black 1px solid;
 }
@@ -89,4 +89,27 @@ a {
 }
 .CartLogo {
   padding-left:50px;
+}
+.FullWidth {
+ display: flex;
+ justify-content: center;
+}
+.Grid {
+  grid-column: auto;
+}
+.HomePage{
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+
+}
+.SingleProductImg {
+  width:15%;
+}
+.CartItem {
+  border:black 1px solid;
+  margin: 10px;
+  display: flex;
+  align-items:center;
+  justify-content:flex-start;
 }

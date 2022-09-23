@@ -33,8 +33,8 @@ export const ProductForm = (onSubmit) => {
       },
 
     ({ brand }) =>
-      isRequired(brand) || {
-        brand: "Brand must contain more than 3 symbols",
+    brand.trim().length > 0 || {
+        brand: "Brand is required",
       },
     ,
     ({ category }) =>

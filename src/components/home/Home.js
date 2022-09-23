@@ -1,4 +1,5 @@
 
+import { Card, Grid } from "@mui/material";
 import React from "react";
 import { useProductContext } from "../../context/productContext";
 
@@ -8,7 +9,7 @@ const Home = () => {
   const { mainProductData } = useProductContext();
 
   return (
-    <div>
+    <div className="HomePage">
       {mainProductData.products?.map((product) => (
         <ProductCard key={product._id} product={product}>
         </ProductCard>

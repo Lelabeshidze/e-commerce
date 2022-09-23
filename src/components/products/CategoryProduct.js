@@ -14,7 +14,7 @@ const CategoryProduct = () => {
  
   return (
     <div>
-      <Select value={sort} onChange={(e) => {
+      <Select fullWidth value={sort} onChange={(e) => {
         setSort(e.target.value);
         setPage({page: 1});
       }}>
