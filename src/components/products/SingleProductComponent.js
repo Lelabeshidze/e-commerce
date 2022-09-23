@@ -42,7 +42,7 @@ const SingleProductComponent = (product) => {
         <div>{data.product?.name}</div> <br/>
         <div>{data.product?.description}</div><br/>
         <div>${data.product?.price}</div>
-        <CardActions className="FullWidth">
+        {/* <CardActions className="FullWidth">
         <Rating value={rating} onChange={onRatingChange} precision={0.5} />
         {isProductInCart ? (
           <>
@@ -55,7 +55,7 @@ const SingleProductComponent = (product) => {
         ) : (
           <Button onClick={() => addToCart(product)}> Add to cart</Button>
         )}
-      </CardActions>
+      </CardActions> */}
       
     </div>
   )

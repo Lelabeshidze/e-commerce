@@ -113,3 +113,13 @@ a {
   align-items:center;
   justify-content:flex-start;
 }
+.Title{
+  font-weight:bold;
+  font-size:20px;
+}
+.MarginTop {
+  margin-top:40px;
+}
+.PaddingTop{
+  padding-top: 40px;
+}

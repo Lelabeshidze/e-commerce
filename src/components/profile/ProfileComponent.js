@@ -14,7 +14,7 @@ const ProfileComponent = () => {
  
   return (
 
-    <div> Hello {userData.firstName}
+    <div className='Title MarginTop'> Hello {userData.firstName} 
     <FormControl fullWidth>
       <TextField value={data?.user?.firstName || ''}/>
       <TextField value={data?.user?.lastName || ''}/>

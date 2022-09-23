@@ -31,7 +31,6 @@ export const ProductForm = (onSubmit) => {
       description.trim().length > 5 || {
         description: "Description must contain more than 10 symbols",
       },
-
     ({ brand }) =>
     brand.trim().length > 0 || {
         brand: "Brand is required",
@@ -117,6 +116,7 @@ export const ProductForm = (onSubmit) => {
         helperText={values.price && errors.price}
         margin="dense"
       />
+
       <FileBase
         type="file"
         multiple={false}
