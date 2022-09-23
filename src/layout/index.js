@@ -5,8 +5,9 @@ import Navbar from "./navigation/Navbar";
 const index = ({children}) => {
   return (
     <div>
+    
      <Header/>
-     <Navbar/>
+     
      {children}
     </div>
   );

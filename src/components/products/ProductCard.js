@@ -16,8 +16,10 @@ import { instance } from "../../hooks/instance";
 const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(product.averageRating);
   const { userData } = useUserContext();
-  const { addToCart, removeFromCart  } = useCartContext();
-
+  const { addToCart, removeFromCart, cart } = useCartContext();
+  const isProductInCart = cart?.find(
+    (cartItem) => cartItem.product?._id === product._id
+  );
 
   const onRatingChange = async (e) => {
     try {
@@ -45,7 +47,17 @@ const ProductCard = ({ product }) => {
       </CardContent>
       <CardActions>
         <Rating value={rating} onChange={onRatingChange} precision={0.5} />
-        <Button onClick={() => addToCart(product)}> Add to cart</Button>
+        {isProductInCart ? (
+          <>
+            <Button onClick={() => removeFromCart(product._id)}>-</Button>
+            {isProductInCart.quantity}
+            <Button onClick={() => 
+             addToCart(product)
+            }>+</Button>
+          </>
+        ) : (
+          <Button onClick={() => addToCart(product)}> Add to cart</Button>
+        )}
       </CardActions>
     </Card>
   );

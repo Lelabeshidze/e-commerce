@@ -39,8 +39,4 @@ const CategoryProduct = () => {
 
 export default CategoryProduct;
 
-// const Wrapper = ({isLoading, isError, children}) => {
-//   if(isLoading){
-//     return <LoadingSpinner/>
-//   }
-// }
+

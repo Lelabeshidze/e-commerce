@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext } from "react";
-
+import { instance } from "../hooks/instance";
 const cartContext = createContext();
 export const useCartContext = () => useContext(cartContext);
  
@@ -36,13 +36,13 @@ const cartReducer = (state, action) => {
         );
       } else {
         updatedCart = state.cart.map((cartItem) =>
-          cartItem.product._id === productId
+          cartItem.product._id === selectedProductId
             ? { ...cartItem, quantity: cartItem.quantity - 1 }
             : cartItem
         );
       }
-      localStorage.setItem("cart", JSON.stringify(newCart));
-      return { cart: newCart };
+      localStorage.setItem("cart", JSON.stringify(updatedCart ));
+      return { cart: updatedCart };
     case "POPULATE_CART":
       return { cart: action.payload };
     default:
@@ -66,9 +66,16 @@ export const CartContextProvider = ({ children }) => {
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM-CART", payload: id });
   };
+
+  const saveCart = async (userId) => {
+    try{
+      await instance.put(`/users/${userId}/cart`, {products: cartState.cart});
+      localStorage.removeItem("cart")
+    } catch(err){}
+  }
   return (
     <cartContext.Provider
-      value={{ addToCart, removeFromCart, cart: cartState.cart }}
+      value={{ addToCart, removeFromCart, cart: cartState.cart, saveCart}}
     >
       {children}
     </cartContext.Provider>

@@ -23,6 +23,7 @@ import { ProductContextProvider } from "./context/productContext";
 import CategoryProductsPage from "./pages/products/CategoryProductsPage";
 import SingleProductPage from "./pages/products/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
+import CartPage from "./pages/cart/CartPage";
 
 
 function App() {
@@ -54,7 +55,9 @@ function App() {
                       <ProductFormPage />
                     </ProtectedRoute>
                   }
+                  
                 />
+                <Route path="/cart" element={<CartPage/>}></Route>
               </Routes>
             </MainLayout>
             </CartContextProvider>

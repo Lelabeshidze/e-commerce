@@ -42,3 +42,13 @@
 .Card {
   display:inline-block;
 }
+li, ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.Flex {
+  display:flex;
+  justify-content: space-between;
+}
