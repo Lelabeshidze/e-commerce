@@ -7,7 +7,7 @@ const index = ({children}) => {
     <div>
     
      <Header/>
-     
+     <Navbar/>
      {children}
     </div>
   );

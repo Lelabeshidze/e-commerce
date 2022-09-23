@@ -7,9 +7,10 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
+import { useProductContext } from "../../context/productContext";
 import { useUserContext } from "../../context/userContext";
 import { instance } from "../../hooks/instance";
 
@@ -17,9 +18,14 @@ const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(product.averageRating);
   const { userData } = useUserContext();
   const { addToCart, removeFromCart, cart } = useCartContext();
+  const {setMainProduct} = useProductContext();
   const isProductInCart = cart?.find(
     (cartItem) => cartItem.product?._id === product._id
   );
+
+  useEffect(() => {
+    setRating(product.averageRating);
+  },[product]);
 
   const onRatingChange = async (e) => {
     try {
@@ -29,6 +35,8 @@ const ProductCard = ({ product }) => {
           rating: +e.target.value,
         }
       );
+      const { data } = await instance.get(`/products`);
+      setMainProduct(data);
     } catch {}
   };
   return (

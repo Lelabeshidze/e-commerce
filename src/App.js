@@ -25,7 +25,6 @@ import SingleProductPage from "./pages/products/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
 import CartPage from "./pages/cart/CartPage";
 
-
 function App() {
   const isAdmin = isUserAdmin();
   return (
@@ -34,32 +33,34 @@ function App() {
         <UserContextProvider>
           <ProductContextProvider>
             <CartContextProvider>
-            <MainLayout>
-              <Routes>
-                <Route path="/" element={<HomePage />}></Route>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/profile/:name" element={<ProfilePage />}></Route>
-                <Route path="/register" element={<RegisterPage />} />
-                <Route
-                  path="/products/categories/:categoryName"
-                  element={<CategoryProductsPage />}
-                ></Route>
-                <Route
-                  path="/products/categories/:categoryName/:productName"
-                  element={<SingleProductPage />}
-                ></Route>
-                <Route
-                  path="/products/new"
-                  element={
-                    <ProtectedRoute hasAccess={isAdmin}>
-                      <ProductFormPage />
-                    </ProtectedRoute>
-                  }
-                  
-                />
-                <Route path="/cart" element={<CartPage/>}></Route>
-              </Routes>
-            </MainLayout>
+              <MainLayout>
+                <Routes>
+                  <Route path="/" element={<HomePage />}></Route>
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route
+                    path="/profile/:name"
+                    element={<ProfilePage />}
+                  ></Route>
+                  <Route path="/register" element={<RegisterPage />} />
+                  <Route
+                    path="/products/categories/:categoryName"
+                    element={<CategoryProductsPage />}
+                  ></Route>
+                  <Route
+                    path="/products/categories/:categoryName/:productName"
+                    element={<SingleProductPage />}
+                  ></Route>
+                  <Route
+                    path="/products/new"
+                    element={
+                      <ProtectedRoute hasAccess={isAdmin}>
+                        <ProductFormPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="/cart" element={<CartPage />}></Route>
+                </Routes>
+              </MainLayout>
             </CartContextProvider>
           </ProductContextProvider>
         </UserContextProvider>

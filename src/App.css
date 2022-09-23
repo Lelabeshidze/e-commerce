@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  margin:auto;
+  padding: auto;
+  width: 100%;
 }
 
 .App-logo {
@@ -50,5 +53,40 @@ a {
 }
 .Flex {
   display:flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items:center;
+  text-align: center;
+  margin-top: 2%;
+  margin-left:5%;
+  margin-right:5%;
+  margin:auto;
+  padding: auto;
+}
+.FlexCategory{
+  display:flex;
+  justify-content: space-evenly;
+  align-items:center;
+  margin-top:20px;
+ 
+  height:100px;
+  width: 100%;
+  padding: auto;
+  border:black 1px solid;
+}
+.Border {
+  border:black 1px solid;
+}
+.Logo {
+  width:60px;
+  height:60px;
+  padding-left: 50px;
+}
+.Padding {
+  padding-right: 10px;
+}
+.MarginLeft{
+  margin-left: 10px;
+}
+.CartLogo {
+  padding-left:50px;
 }

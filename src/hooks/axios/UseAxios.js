@@ -12,6 +12,7 @@ const UseAxios = (url) => {
  },[url]);
  return {
     data,
+    setData
  };
 }
 

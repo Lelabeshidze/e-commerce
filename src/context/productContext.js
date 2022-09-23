@@ -9,7 +9,8 @@ const ProductContext = createContext();
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductContextProvider = ({ children }) => {
-  const {data: mainProductData } = UseAxios("/products");
+  const { data: mainProductData, setData: setMainProduct } =
+    UseAxios("/products");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isProductUpdating, setProductUpdating] = useState(false);
   const { setErrors } = useForm();
@@ -18,17 +19,19 @@ export const ProductContextProvider = ({ children }) => {
     const path = isProductUpdating
       ? `/products/${selectedProduct._id}`
       : "/products";
-      let method = isProductUpdating ? "put" : "post";
-      try {
-        const response = await instance[method](path, {...product});
-        navigate("/");
-      } catch(err) {
-        setErrors("Failure")
-      } finally{
-        setSelectedProduct(null)
-      }
+    let method = isProductUpdating ? "put" : "post";
+    try {
+      const response = await instance[method](path, { ...product });
+      navigate("/");
+    } catch (err) {
+      setErrors("Failure");
+    } finally {
+      setSelectedProduct(null);
+    }
   };
   return (
-    <ProductContext.Provider value={{addProduct,mainProductData}}> {children}</ProductContext.Provider>
+    <ProductContext.Provider value={{ addProduct, mainProductData,setMainProduct }}>
+      {children}
+    </ProductContext.Provider>
   );
 };
