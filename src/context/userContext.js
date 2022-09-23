@@ -49,11 +49,9 @@ export const UserContextProvider = ({ children }) => {
     setUserData(null);
     navigate("/");
   };
-  const  addProduct = () => {
-    
-  }
+
   return (
-    <userContext.Provider value={{ register, userData, login, logout,  addProduct }}>
+    <userContext.Provider value={{ register, userData, login, logout}}>
       {children}
     </userContext.Provider>
   );
