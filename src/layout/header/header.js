@@ -3,8 +3,8 @@ import { useUserContext } from "../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import Navbar from "../navigation/Navbar";
-import Search from "./Search";
+
+import Search from "../../components/search/Search";
 import logo from "../../Images/Mobile Phones/logo.jpg"
 const Header = () => {
   const { userData, logout } = useUserContext();
@@ -26,9 +26,7 @@ const Header = () => {
         <div>
         <Search/>
         </div>
-        {/* <div>
-        <Navbar />
-      </div> */}
+
       <div className="Flex">
         {!userData ? (
           <>
