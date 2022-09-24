@@ -1,3 +1,4 @@
+import { Alert } from "@mui/material";
 import { createContext, useReducer, useContext, useEffect } from "react";
 import { instance } from "../hooks/instance";
 import { getUser } from "../utils/util";
@@ -86,7 +87,10 @@ export const CartContextProvider = ({ children }) => {
     try{
       await instance.put(`/users/${userId}/cart`, {products: cartState.cart});
       localStorage.removeItem("cart")
-    } catch(err){}
+      alert("Cart saved successfully")
+    } catch(err){
+      alert("Something went wrong")
+    }
   }
   return (
     <cartContext.Provider
