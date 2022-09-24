@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useProductContext } from '../../context/productContext'
+import LoadingSpinner from '../../utils/LoadingSpinner';
 
 const Navbar = () => {
     const {mainProductData} = useProductContext();

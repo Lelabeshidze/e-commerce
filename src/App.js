@@ -24,6 +24,9 @@ import CategoryProductsPage from "./pages/products/CategoryProductsPage";
 import SingleProductPage from "./pages/products/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
 import CartPage from "./pages/cart/CartPage";
+import Search from "./layout/header/Search";
+import SearchPage from "./pages/search/SearchPage";
+import SearchComponent from "./components/search/SearchComponent";
 
 function App() {
   const isAdmin = isUserAdmin();
@@ -59,6 +62,7 @@ function App() {
                     }
                   />
                   <Route path="/cart" element={<CartPage />}></Route>
+                  <Route path="/searchPage" element={<SearchComponent/>}></Route>
                 </Routes>
               </MainLayout>
             </CartContextProvider>

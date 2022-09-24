@@ -14,9 +14,9 @@ import { useProductContext } from "../../context/productContext";
 import { useUserContext } from "../../context/userContext";
 import { instance } from "../../hooks/instance";
 
+
 const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(product.averageRating);
-
   const { userData } = useUserContext();
   const { addToCart, removeFromCart, cart } = useCartContext();
   const {setMainProduct} = useProductContext();
@@ -41,6 +41,8 @@ const ProductCard = ({ product }) => {
     } catch {}
   };
   return (
+
+   
     <Card className="Card" sx={{ maxWidth: 345 }}>
       <CardContent>
         <Link
@@ -54,6 +56,7 @@ const ProductCard = ({ product }) => {
         <Typography variant="overline">{product.description} </Typography>
         <Typography>${product.price}</Typography>
       </CardContent>
+    
       <CardActions className="FullWidth">
         <Rating value={rating} onChange={onRatingChange} precision={0.5} />
         {isProductInCart ? (
@@ -68,7 +71,9 @@ const ProductCard = ({ product }) => {
           <Button onClick={() => addToCart(product)}> Add to cart</Button>
         )}
       </CardActions>
+    
     </Card>
+   
   );
 };
 

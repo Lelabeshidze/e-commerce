@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import UseAxios from "../hooks/axios/UseAxios";
 import { instance } from "../hooks/instance";
 import { useForm } from "../hooks/useForm";
+import LoadingSpinner from "../utils/LoadingSpinner";
 
 const ProductContext = createContext();
 
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductContextProvider = ({ children }) => {
-  const { data: mainProductData, setData: setMainProduct } =
+  const { data: mainProductData, setData: setMainProduct,isLoading,setLoading } =
     UseAxios("/products");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isProductUpdating, setProductUpdating] = useState(false);
@@ -23,6 +24,7 @@ export const ProductContextProvider = ({ children }) => {
     try {
       const response = await instance[method](path, { ...product });
       navigate("/");
+      setLoading(true)
     } catch (err) {
       setErrors("Failure");
     } finally {
@@ -30,7 +32,7 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
   return (
-    <ProductContext.Provider value={{ addProduct, mainProductData,setMainProduct }}>
+    <ProductContext.Provider value={{ addProduct, mainProductData,setMainProduct,isLoading}}>
       {children}
     </ProductContext.Provider>
   );

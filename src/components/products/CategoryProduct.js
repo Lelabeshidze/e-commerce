@@ -2,6 +2,7 @@ import { Grid, MenuItem, Select } from '@mui/material';
 import React, { useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom';
 import UseAxios from '../../hooks/axios/UseAxios';
+import LoadingSpinner from '../../utils/LoadingSpinner';
 import PaginationComponent from '../../utils/Pagination';
 import ProductCard from './ProductCard';
 
@@ -9,7 +10,7 @@ const CategoryProduct = () => {
   const {categoryName} = useParams();
   const [page,setPage] =useSearchParams();
   const [sort,setSort] =useState("price,desc")
-  const {data} =UseAxios(`/products/category/${categoryName}?page=${page.get("page")}&sort=${sort}`);
+  const {data, isLoading, setLoading } =UseAxios(`/products/category/${categoryName}?page=${page.get("page")}&sort=${sort}`);
  
  
   return (
@@ -33,6 +34,7 @@ const CategoryProduct = () => {
       })}
       </Grid>
       <PaginationComponent page={page} setPage={setPage} totalPages={data.totalPages}/>
+      {!isLoading && <LoadingSpinner/>} 
     </div>
   )
 }
