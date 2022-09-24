@@ -34,7 +34,8 @@ export const LoginForm = (onSubmit) => {
   );
 
   return (
-    <FormControl className="signup-form">
+    <div>
+      {isLoading ? (<LoadingSpinner/>) : (    <FormControl className="signup-form">
       <h2>Sign in</h2>
       <div>
         <TextField
@@ -68,7 +69,7 @@ export const LoginForm = (onSubmit) => {
       <Button disabled={!isValid} onClick={submitHandler}>
         Sign In
       </Button>
-      {isLoading && <LoadingSpinner />}
-    </FormControl>
+    </FormControl>)}
+    </div>
   );
 };
