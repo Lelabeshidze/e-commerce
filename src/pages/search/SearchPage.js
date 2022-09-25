@@ -21,10 +21,10 @@ const SearchPage = () => {
 
 
   return (
-    <div>
+    <div className="SearchPage">
       {searchResult.products?.map((product) => {
         return (
-          <Card key={product._id}>
+          <Card key={product._id}  sx={{ maxWidth: 345 }}>
             <CardContent>
               <Link
                 to={`/products/categories/${product.category}/${product.name}`}
