@@ -99,7 +99,7 @@ a {
 }
 .HomePage{
   display: flex;
-  justify-content:center;
+  justify-content:space-evenly;
   flex-wrap: wrap;
 
 }
@@ -131,4 +131,15 @@ a {
   display:flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.Footer {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 200px;
+ border: #282c34 1px solid;
+ height: 300px;
 }

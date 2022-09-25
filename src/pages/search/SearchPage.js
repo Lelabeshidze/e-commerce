@@ -1,4 +1,3 @@
-import { createItemFromDescriptor } from "@babel/core/lib/config/item";
 import {
   Card,
   CardActions,
@@ -6,25 +5,23 @@ import {
   Rating,
   Typography,
   Button,
+  CardMedia,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSearchContext } from "../../components/search/Search";
+
 import { useCartContext } from "../../context/cartContext";
 
 const SearchPage = () => {
- 
   const searchResult = JSON.parse(localStorage.getItem("data"));
- 
+
   const { addToCart } = useCartContext();
-
-
 
   return (
     <div className="SearchPage">
       {searchResult.products?.map((product) => {
         return (
-          <Card key={product._id}  sx={{ maxWidth: 345 }}>
+          <Card key={product._id} sx={{ maxWidth: 345 }} raised> 
             <CardContent>
               <Link
                 to={`/products/categories/${product.category}/${product.name}`}

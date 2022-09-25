@@ -37,7 +37,7 @@ const CartComponent = () => {
             );
           })
         : "cart is empty"}
-    {user && <Button onClick={() => saveCart(user._id) }>Save Cart</Button>} 
+    {user && <Button onClick={() => saveCart(user._id) } variant="outlined">Save Cart</Button>} 
       
     </div>
   );

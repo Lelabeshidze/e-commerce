@@ -59,7 +59,7 @@ const Header = () => {
         )}
 
         <Link to="/cart" className="CartLogo">
-          <HiOutlineShoppingCart />
+          <HiOutlineShoppingCart size={25}/>
         </Link>
       </div>
       </div>

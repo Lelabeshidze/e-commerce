@@ -86,7 +86,7 @@ export const CartContextProvider = ({ children }) => {
   const saveCart = async (userId) => {
     try{
       await instance.put(`/users/${userId}/cart`, {products: cartState.cart});
-      localStorage.removeItem("cart")
+      localStorage.setItem("cart")
       alert("Cart saved successfully")
     } catch(err){
       alert("Something went wrong")
@@ -100,4 +100,3 @@ export const CartContextProvider = ({ children }) => {
     </cartContext.Provider>
   );
 };
-

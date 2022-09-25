@@ -43,7 +43,7 @@ const ProductCard = ({ product }) => {
   return (
 
    
-    <Card className="Card" sx={{ maxWidth: 345 }}>
+    <Card className="Card" sx={{ maxWidth: 345 }} raised>
       <CardContent>
         <Link
           to={`/products/categories/${product.category}/${product.name}`}
