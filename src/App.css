@@ -123,3 +123,7 @@ a {
 .PaddingTop{
   padding-top: 40px;
 }
+.SearchImg {
+  width: 100px;
+  height: 100px;
+}

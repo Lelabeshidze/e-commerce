@@ -24,6 +24,8 @@ import CategoryProductsPage from "./pages/products/CategoryProductsPage";
 import SingleProductPage from "./pages/products/SingleProductPage";
 import { CartContextProvider } from "./context/cartContext";
 import CartPage from "./pages/cart/CartPage";
+import { SearchContextProvider } from "./components/search/Search";
+import SearchPage from "./pages/search/SearchPage";
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
         <UserContextProvider>
           <ProductContextProvider>
             <CartContextProvider>
+              <SearchContextProvider>
               <MainLayout>
                 <Routes>
                   <Route path="/" element={<HomePage />}></Route>
@@ -60,9 +63,10 @@ function App() {
                     }
                   />
                   <Route path="/cart" element={<CartPage />}></Route>
-               
+                 <Route path="/searchResult" element={<SearchPage/>}></Route>
                 </Routes>
               </MainLayout>
+              </SearchContextProvider>
             </CartContextProvider>
           </ProductContextProvider>
         </UserContextProvider>

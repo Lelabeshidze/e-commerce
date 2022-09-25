@@ -56,7 +56,7 @@ const cartReducer = (state, action) => {
 
 export const CartContextProvider = ({ children }) => {
 
-  const [cartState, dispatch] = useReducer(cartReducer, { cart: [] });
+  const [cartState, dispatch] = useReducer(cartReducer, { cart:[] });
 
   const addToCart = (product) => {
     dispatch({

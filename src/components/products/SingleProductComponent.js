@@ -24,18 +24,18 @@ const SingleProductComponent = (product) => {
     setRating(product.averageRating);
   },[product]);
 
-  const onRatingChange = async (e) => {
-    try {
-      await instance.post(
-        `/products/${product.id}/users/${userData.id}/rate`,
-        {
-          rating: +e.target.value,
-        }
-      );
-      const { data } = await instance.get(`/products`);
-      setMainProduct(data);
-    } catch {}
-  };
+  // const onRatingChange = async (e) => {
+  //   try {
+  //     await instance.post(
+  //       `/products/${product.id}/users/${userData.id}/rate`,
+  //       {
+  //         rating: +e.target.value,
+  //       }
+  //     );
+  //     const { data } = await instance.get(`/products`);
+  //     setMainProduct(data);
+  //   } catch (err) {}
+  // };
   return (
     <div >
       <img src={data.product?.image} className="SingleProductImg" /> 
