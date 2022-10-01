@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../Images/Mobile Phones/logo.jpg";
 import {
   TiSocialLinkedinCircular,
   TiSocialFacebookCircular,
