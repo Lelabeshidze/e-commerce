@@ -24,16 +24,16 @@ const CategoryProduct = () => {
         <MenuItem value={"name,asc"}>Name: A to Z</MenuItem>
         <MenuItem value={"name,desc"}>Name: Z to A</MenuItem>
       </Select>
-      <Grid container spacing={2} >
+      <Grid container spacing={2}className="Card" >
       {data.products?.length > 0 && data.products.map((product) => {
         return (
-          <Grid item key={product._id}> 
+          <Grid item key={product._id} > 
           <ProductCard  product={product}/>
           </Grid>
         )
       })}
-      </Grid>
-      <PaginationComponent page={page} setPage={setPage} totalPages={data.totalPages}/>
+      </Grid> 
+      <PaginationComponent page={page} setPage={setPage} totalPages={data.totalPages} />
       {!isLoading && <LoadingSpinner/>} 
     </div>
   )

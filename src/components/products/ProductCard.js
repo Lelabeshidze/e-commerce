@@ -14,19 +14,18 @@ import { useProductContext } from "../../context/productContext";
 import { useUserContext } from "../../context/userContext";
 import { instance } from "../../hooks/instance";
 
-
 const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(product.averageRating);
   const { userData } = useUserContext();
   const { addToCart, removeFromCart, cart } = useCartContext();
-  const {setMainProduct} = useProductContext();
+  const { setMainProduct } = useProductContext();
   const isProductInCart = cart?.find(
     (cartItem) => cartItem.product?._id === product._id
   );
 
   useEffect(() => {
     setRating(product.averageRating);
-  },[product]);
+  }, [product]);
 
   const onRatingChange = async (e) => {
     try {
@@ -41,39 +40,36 @@ const ProductCard = ({ product }) => {
     } catch {}
   };
   return (
-
-   
-    <Card className="Card" sx={{ maxWidth: 345 }} raised>
+    
+    <Card  className="Card"sx={{ maxWidth: 345 }} raised style={{backgroundColor: "#F5FFFA"}}>
       <CardContent>
         <Link
+        className="Hover"
           to={`/products/categories/${product.category}/${product.name}`}
           state={{ id: product._id, category: product.category }}
         >
           <img src={product.image} className="ProductImg" /> <br />
+          <Typography variant="caption">{product.brand}</Typography>
+          <Typography variant="h6" >{product.name} </Typography>
+          <Typography variant="overline">{product.description} </Typography>
+          <Typography>${product.price}</Typography>
         </Link>
-        <Typography variant="caption">{product.brand}</Typography>
-        <Typography variant="h6">{product.name} </Typography>
-        <Typography variant="overline">{product.description} </Typography>
-        <Typography>${product.price}</Typography>
       </CardContent>
-    
+
       <CardActions className="FullWidth">
         <Rating value={rating} onChange={onRatingChange} precision={0.5} />
         {isProductInCart ? (
           <>
             <Button onClick={() => removeFromCart(product._id)}>-</Button>
             {isProductInCart.quantity}
-            <Button onClick={() => 
-             addToCart(product)
-            }>+</Button>
+            <Button onClick={() => addToCart(product)}>+</Button>
           </>
         ) : (
           <Button onClick={() => addToCart(product)}> Add to cart</Button>
         )}
       </CardActions>
-    
     </Card>
-   
+    
   );
 };
 

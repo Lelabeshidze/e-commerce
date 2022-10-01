@@ -2,7 +2,13 @@
   text-align: center;
   margin:auto;
   padding: auto;
-  width: 100%;
+  width: 90%;
+  background-color: white;
+  margin-top: 4%;
+  margin-bottom:4%;
+}
+.root {
+  background-color: 	#006400;
 }
 
 .App-logo {
@@ -44,6 +50,9 @@
 }
 .Card {
 margin-top: 100px;
+display: flex;
+justify-content:space-evenly;
+flex-wrap: wrap;
 
 }
 li, ul {
@@ -52,17 +61,20 @@ li, ul {
 a {
   text-decoration: none;
 }
+
 .Flex {
   display:flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items:center;
   text-align: center;
-  margin-top: 2%;
+  /* margin-top: 2%;
   margin-left:5%;
-  margin-right:5%;
+  margin-right:5%; */
   margin:auto;
   padding: auto;
+  
 }
+
 .FlexCategory{
   display:flex;
   justify-content: space-evenly;
@@ -71,10 +83,10 @@ a {
  
  height: 100px;
   padding: auto;
-  border:black 1px solid;
+
 }
 .Border {
-  border:black 1px solid;
+ padding-top:40px ;
 }
 .Logo {
   width:60px;
@@ -89,6 +101,7 @@ a {
 }
 .CartLogo {
   padding-left:50px;
+  color:green;
 }
 .FullWidth {
  display: flex;
@@ -107,7 +120,7 @@ a {
   width:15%;
 }
 .CartItem {
-  border:black 1px solid;
+ 
   margin: 10px;
   display: flex;
   align-items:center;
@@ -140,6 +153,18 @@ a {
   align-items: center;
   text-align: center;
   margin-top: 200px;
- border: #282c34 1px solid;
+
  height: 300px;
+}
+.Pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+.Hover :hover{
+  color: #006400;
+  transition: ease-in-out;
+}
+.Hover{
+  color:black;
 }
