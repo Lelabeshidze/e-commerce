@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
   };
   return (
     
-    <Card  className="Card"sx={{ maxWidth: 345 }} raised style={{backgroundColor: "#2e7d32"}}>
+    <Card  className="Card"sx={{ maxWidth: 345 }} raised style={{backgroundColor: "#388e3c"}}>
       <CardContent>
         <Link
         className="Hover"
@@ -60,12 +60,12 @@ const ProductCard = ({ product }) => {
         <Rating value={rating} onChange={onRatingChange} precision={0.5} />
         {isProductInCart ? (
           <>
-            <Button onClick={() => removeFromCart(product._id)}>-</Button>
+            <Button onClick={() => removeFromCart(product._id)} color="primary">-</Button>
             {isProductInCart.quantity}
-            <Button onClick={() => addToCart(product)}>+</Button>
+            <Button onClick={() => addToCart(product)} color="primary">+</Button>
           </>
         ) : (
-          <Button onClick={() => addToCart(product)} color="warning"> Add to cart</Button>
+          <Button onClick={() => addToCart(product)} color="primary"> Add to cart</Button>
         )}
       </CardActions>
     </Card>

@@ -44,13 +44,17 @@
 }
 .ProductImg {
   width: 40%;
+  border-radius: 5%;
 }
 .Card {
   margin-top: 100px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
 }
+
+
 li,
 ul {
   list-style: none;
@@ -119,6 +123,7 @@ a {
   align-items: center;
   justify-content: flex-start;
 }
+
 .Title {
   font-weight: bold;
   font-size: 20px;
@@ -151,9 +156,10 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 80px;
+ 
 }
 .Hover :hover {
-  color: #006400;
+  color: #fafafa;
   transition: ease-in-out;
 }
 .Hover {

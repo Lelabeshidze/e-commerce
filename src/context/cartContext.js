@@ -4,8 +4,6 @@ import { instance } from "../hooks/instance";
 import { getUser } from "../utils/util";
 const cartContext = createContext();
 export const useCartContext = () => useContext(cartContext);
- 
-
 
 const cartReducer = (state, action) => {
   switch (action.type) {
@@ -43,20 +41,17 @@ const cartReducer = (state, action) => {
             : cartItem
         );
       }
-      localStorage.setItem("cart", JSON.stringify(updatedCart ));
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       return { cart: updatedCart };
     case "POPULATE_CART":
       return { cart: action.payload };
     default:
       return state;
   }
-  
 };
 
-
 export const CartContextProvider = ({ children }) => {
-
-  const [cartState, dispatch] = useReducer(cartReducer, { cart:[] });
+  const [cartState, dispatch] = useReducer(cartReducer, { cart: [] });
 
   const addToCart = (product) => {
     dispatch({
@@ -69,32 +64,30 @@ export const CartContextProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM-CART", payload: id });
   };
 
-
   useEffect(() => {
     const user = getUser();
     if (user) {
       const getUserCart = async () => {
         const { data } = await instance.get(`/users/${user._id}/cart`);
-        dispatch({ type: "POPULATE_CART" , payload: data.cart});
+        dispatch({ type: "POPULATE_CART", payload: data.cart });
       };
       getUserCart();
     } else {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      dispatch ({ type: "POPULATE_CART", payload: cart});
+      dispatch({ type: "POPULATE_CART", payload: cart });
     }
-  },[])
+  }, []);
   const saveCart = async (userId) => {
-    try{
-      await instance.put(`/users/${userId}/cart`, {products: cartState.cart});
-      localStorage.removeItem("cart")
-      alert("Cart saved successfully")
-    } catch(err){
-      alert("Something went wrong")
+    try {
+      await instance.put(`/users/${userId}/cart`, { products: cartState.cart });
+      localStorage.removeItem("cart");
+    } catch (err) {
+      alert("Something went wrong");
     }
-  }
+  };
   return (
     <cartContext.Provider
-      value={{ addToCart, removeFromCart, cart: cartState.cart, saveCart}}
+      value={{ addToCart, removeFromCart, cart: cartState.cart, saveCart }}
     >
       {children}
     </cartContext.Provider>

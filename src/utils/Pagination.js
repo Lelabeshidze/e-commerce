@@ -12,7 +12,7 @@ const PaginationComponent = ({ page, setPage, totalPages }) => {
         setPage({ page: +value });
       }}
       className="Pagination"
-      variant="outlined" color="secondary" 
+      variant="outlined" color="primary"
     />
     </Stack>
   );
