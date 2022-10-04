@@ -1,14 +1,11 @@
 .App {
   text-align: center;
-  margin:auto;
+  margin: auto;
   padding: auto;
-  width: 90%;
-  background-color: white;
-  margin-top: 4%;
-  margin-bottom:4%;
-}
-.root {
-  background-color: 	#006400;
+  width: 100%;
+  background-color: #2e3047;
+  /* margin-top: 4%;
+  margin-bottom: 4%; */
 }
 
 .App-logo {
@@ -49,13 +46,13 @@
   width: 40%;
 }
 .Card {
-margin-top: 100px;
-display: flex;
-justify-content:space-evenly;
-flex-wrap: wrap;
-
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-li, ul {
+li,
+ul {
   list-style: none;
 }
 a {
@@ -63,77 +60,73 @@ a {
 }
 
 .Flex {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   text-align: center;
   /* margin-top: 2%;
   margin-left:5%;
   margin-right:5%; */
-  margin:auto;
+  margin: auto;
   padding: auto;
-  
 }
 
-.FlexCategory{
-  display:flex;
+.FlexCategory {
+  display: flex;
   justify-content: space-evenly;
-  align-items:center;
-  margin-top:20px;
- 
- height: 100px;
-  padding: auto;
+  align-items: center;
+  margin-top: 20px;
 
+  height: 100px;
+  padding: auto;
 }
 .Border {
- padding-top:40px ;
+  padding-top: 40px;
 }
 .Logo {
-  width:60px;
-  height:60px;
+  width: 60px;
+  height: 60px;
   padding-left: 50px;
 }
 .Padding {
   padding-right: 10px;
 }
-.MarginLeft{
+.MarginLeft {
   margin-left: 10px;
 }
 .CartLogo {
-  padding-left:50px;
-  color:green;
+  padding-left: 50px;
+  color: green;
 }
 .FullWidth {
- display: flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .Grid {
   grid-column: auto;
 }
-.HomePage{
+.HomePage {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-
 }
 .SingleProductImg {
-  width:15%;
+  width: 15%;
 }
 .CartItem {
- 
   margin: 10px;
   display: flex;
-  align-items:center;
-  justify-content:flex-start;
+  align-items: center;
+  justify-content: flex-start;
 }
-.Title{
-  font-weight:bold;
-  font-size:20px;
+.Title {
+  font-weight: bold;
+  font-size: 20px;
 }
 .MarginTop {
-  margin-top:40px;
+  margin-top: 40px;
 }
-.PaddingTop{
+.PaddingTop {
   padding-top: 40px;
 }
 .SearchImg {
@@ -141,30 +134,31 @@ a {
   height: 100px;
 }
 .SearchPage {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 .Footer {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-top: 200px;
-
- height: 300px;
+  height: 300px;
 }
 .Pagination {
   display: flex;
   justify-content: center;
   margin-top: 80px;
 }
-.Hover :hover{
+.Hover :hover {
   color: #006400;
   transition: ease-in-out;
 }
-.Hover{
-  color:black;
+.Hover {
+  color: black;
+}
+.Color {
+  color: white;
 }

@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
   };
   return (
     
-    <Card  className="Card"sx={{ maxWidth: 345 }} raised style={{backgroundColor: "#F5FFFA"}}>
+    <Card  className="Card"sx={{ maxWidth: 345 }} raised style={{backgroundColor: "#2e7d32"}}>
       <CardContent>
         <Link
         className="Hover"
@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
             <Button onClick={() => addToCart(product)}>+</Button>
           </>
         ) : (
-          <Button onClick={() => addToCart(product)}> Add to cart</Button>
+          <Button onClick={() => addToCart(product)} color="warning"> Add to cart</Button>
         )}
       </CardActions>
     </Card>

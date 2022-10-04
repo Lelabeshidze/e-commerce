@@ -15,6 +15,7 @@ const Header = () => {
     });
   };
   const { searchResult, value, onClick, setValue } = useSearchContext();
+
   return (
     <div className="Flex Border">
       <Link to="/">
@@ -32,6 +33,7 @@ const Header = () => {
           variant="outlined"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          color="success"
         />
         <Button onClick={onClick} variant="text" color="success">
           Search

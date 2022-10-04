@@ -29,7 +29,7 @@ const CartComponent = () => {
                   <h4> Quantity-{cartItem.quantity}</h4>
                 </div>
                     <div>
-                <Button onClick={() => removeFromCart(cartItem.product._id)}>
+                <Button onClick={() => removeFromCart(cartItem.product._id)} color="warning">
                   Remove Item
                 </Button>
                 </div>
@@ -37,7 +37,7 @@ const CartComponent = () => {
             );
           })
         : "cart is empty"}
-    {user && <Button onClick={() => saveCart(user._id) } variant="outlined">Save Cart</Button>} 
+    {user && <Button onClick={() => saveCart(user._id) } variant="outlined" color="success">Save Cart</Button>} 
       
     </div>
   );
