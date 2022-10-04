@@ -6,6 +6,7 @@ import {
   Snackbar,
   TextField,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
@@ -36,38 +37,43 @@ const CartComponent = () => {
                 >
                   <img src={cartItem.product.image} className="ProductImg" />
                 </Link>
-                <div>
-                  <FormControl class="CartProduct">
+                <Box
+                  sx={{
+                    "& .MuiTextField-root": { m: 1, width: "25ch" },
+                  }}
+                >
+                  <div className="form-control">
                     <TextField
                       value={cartItem.product.name}
                       color="success"
                       InputLabelProps={{ shrink: true }}
                       label="Name"
+                      variant="outlined"
                     />
                     <TextField
                       value={cartItem.product.price}
                       color="success"
                       InputLabelProps={{ shrink: true }}
                       label="Price $"
+                      variant="outlined"
                     />
                     <TextField
                       value={cartItem.quantity}
                       color="success"
                       InputLabelProps={{
-                        shrink: true
+                        shrink: true,
                       }}
                       label="Quantity"
+                      variant="outlined"
                     />
-                  </FormControl>
-
-                  <Button
-                    onClick={() => removeFromCart(cartItem.product._id)}
-                    color="warning"
-                    style={{ marginTop: "30px" }}
-                  >
-                    Remove Item
-                  </Button>
-                </div>
+                  </div>
+                </Box>
+                <Button
+                  onClick={() => removeFromCart(cartItem.product._id)}
+                  color="warning"
+                >
+                  Remove Item
+                </Button>
               </div>
             );
           })
